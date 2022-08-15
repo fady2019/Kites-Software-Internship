@@ -1,0 +1,38 @@
+@startuml
+node "Client" {
+
+
+package "Presentation CS" {
+  [«Swing» UI Modules]-->[UI Process Module]
+}
+package "Business logic CS" {
+  [UI Process Module]-->[Business Modules CS]
+  [Business Modules CS]-->[Business Entities CS]
+}
+package "Data CS" {
+[Data Access] --> [Local Data Source]
+}
+
+database "Local Data Source" {
+}
+
+
+[Business Modules CS]-->[Data Access]
+
+package "Cross-cutting CS" {
+[Security]
+[Operational Management]
+[Communication]
+
+}
+
+}
+
+node {
+[Data Access]-->[Back up]
+database "Back up" {
+}
+}
+
+
+@enduml
