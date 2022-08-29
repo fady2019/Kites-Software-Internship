@@ -22,5 +22,25 @@ public class filter {
 
     @Then("The system will respond with a message : {string}")
     public void theSystemWillRespondWithAMessage(String arg0) {
+
+    }
+
+    @When("the user requests to search for a tool from displayed tools by name {string}")
+    public void theUserRequestsToSearchForAToolFromDisplayedToolsByName(String arg0) {
+        
+    }
+
+    @Then("the system shows the tool named {string}")
+    public void theSystemShowsTheToolNamed(String arg0) {
+        
+    }
+
+    @When("the user requests to filter displayed tools by price within range [{double}]")
+    public void theUserRequestsToFilterDisplayedToolsByPriceWithinRange(int arg0, int arg1) {
+        
+    }
+
+    @Then("the system shows a list of tools that belong to this price range as follows:")
+    public void theSystemShowsAListOfToolsThatBelongToThisPriceRangeAsFollows() {
     }
 }
