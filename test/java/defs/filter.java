@@ -43,4 +43,9 @@ public class filter {
     @Then("the system shows a list of tools that belong to this price range as follows:")
     public void theSystemShowsAListOfToolsThatBelongToThisPriceRangeAsFollows() {
     }
+
+    @When("the user requests to search for a tool from displayed tools by name {string}")
+    public void theUserRequestsToSearchForAToolFromDisplayedToolsByCategory(String arg0) {
+
+    }
 }
