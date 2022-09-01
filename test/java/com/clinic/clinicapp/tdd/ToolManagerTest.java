@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.time.LocalDate;
 
-public class ToolManagerTester {
+public class ToolManagerTest {
     ToolsManager manager;
     LocalDate expDate;
 
