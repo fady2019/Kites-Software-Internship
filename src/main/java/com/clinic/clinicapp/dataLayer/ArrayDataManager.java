@@ -38,4 +38,14 @@ public class ArrayDataManager implements DataManager {
         }
         return null;
     }
+
+    public ArrayList<Tool> filterByPrice(int start, int end){
+        ArrayList<Tool> result = new ArrayList<>();
+        for(Tool tool : tools.values()){
+            if(tool.getPrice() >= start && tool.getPrice() <= end){
+                result.add(tool);
+            }
+        }
+        return result;
+    }
 }

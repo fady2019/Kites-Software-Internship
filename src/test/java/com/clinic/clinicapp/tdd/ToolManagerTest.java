@@ -27,7 +27,6 @@ public class ToolManagerTest {
         LocalDate expDate = getDate(1, 1, 2023);
         Tool newTool = new Tool("Needle holder", 1215, expDate, 200,
                 ToolCategory.SURGICAL, 20, "s1", true, 3);
-
         assertTrue(manager.addTool(newTool));
     }
 
@@ -158,6 +157,61 @@ public class ToolManagerTest {
 
     private Tool expectedSearchByNameDrill(){
         return null;
+    }
+
+    @DisplayName ("Filter tools by price and price found")
+    @Test
+    public void filterToolsByPriceAndToolsFound(){
+        manager = new ToolsManager();
+        Tool elevator = new Tool("Elevator", 555, getDate(1, 1, 2023), 500,
+                ToolCategory.SURGICAL, 10, "supplier1", true, 3);
+        Tool needleHolder = new Tool("needle holder", 1215, getDate(1, 1, 2023), 200,
+                ToolCategory.SURGICAL, 10, "s1", true, 3);
+        Tool bracketTweezers = new Tool("bracket tweezers", 840, getDate(1, 5, 2023), 150,
+                ToolCategory.ORTHODONTIC, 10, "s2", true, 3);
+
+        manager.addTool(elevator);
+        manager.addTool(needleHolder);
+        manager.addTool(bracketTweezers);
+
+        ArrayList<Tool> filterResult = manager.filterByPrice(400,600);
+        assertEquals(expectedFilteredListForFilterToolsByPriceAndToolsFound(),filterResult);
+    }
+
+    Tool createTool(String name, long label, LocalDate expDate, int price, ToolCategory category, int quantity,
+                    String supplier, Boolean reusable, int minQuantity){
+        return new Tool (name, label, expDate, price, category, quantity, supplier, reusable, minQuantity);
+    }
+
+    ArrayList<Tool> expectedFilteredListForFilterToolsByPriceAndToolsFound(){
+        ArrayList<Tool> expectedResult = new ArrayList<>();
+        expectedResult.add(createTool("Elevator", 555, getDate(1, 1, 2023), 500,
+            ToolCategory.SURGICAL, 10, "supplier1", true, 3));
+        return expectedResult;
+    }
+
+    @DisplayName ("Filter tools by price and tools not found")
+    @Test
+    public void filterToolsByPriceAndToolsNotFound(){
+        manager = new ToolsManager();
+        Tool elevator = new Tool("Elevator", 555, getDate(1, 1, 2023), 500,
+                ToolCategory.SURGICAL, 10, "supplier1", true, 3);
+        Tool needleHolder = new Tool("needle holder", 1215, getDate(1, 1, 2023), 200,
+                ToolCategory.SURGICAL, 10, "s1", true, 3);
+        Tool bracketTweezers = new Tool("bracket tweezers", 840, getDate(1, 5, 2023), 150,
+                ToolCategory.ORTHODONTIC, 10, "s2", true, 3);
+
+        manager.addTool(elevator);
+        manager.addTool(needleHolder);
+        manager.addTool(bracketTweezers);
+
+        ArrayList<Tool> filterResult = manager.filterByPrice(600,700);
+        assertEquals(expectedFilteredListForFilterToolsByPriceAndToolsNotFound(),filterResult);
+
+    }
+    ArrayList<Tool> expectedFilteredListForFilterToolsByPriceAndToolsNotFound(){
+        ArrayList<Tool> expectedResult = new ArrayList<>();
+        return expectedResult;
     }
 }
 
