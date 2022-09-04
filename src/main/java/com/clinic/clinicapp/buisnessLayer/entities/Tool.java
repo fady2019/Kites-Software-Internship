@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 public class Tool {
     private String name;
-    private String label;
+    private long label;
     private LocalDate expDate;
     private int price;
     private ToolCategory category;
@@ -13,7 +13,7 @@ public class Tool {
     private boolean reusable;
     private int minQuantity;
 
-    public Tool(String name, String label,LocalDate expDate, int price, ToolCategory category,
+    public Tool(String name, long label,LocalDate expDate, int price, ToolCategory category,
                 int quantity, String supplier, boolean reusable, int minQuantity) {
         this.name = name;
         this.label = label;
@@ -30,7 +30,7 @@ public class Tool {
         return name;
     }
 
-    public String getLabel() {
+    public long getLabel() {
         return label;
     }
 
@@ -64,7 +64,7 @@ public class Tool {
 
     @Override
     public boolean equals(Object o) {
-        return  this.label.equals(((Tool) o).getLabel()) &&
+        return  this.label == ((Tool) o).getLabel() &&
                 this.name.equals(((Tool) o).getName()) &&
                 this.expDate.equals(((Tool) o).getExpDate()) &&
                 this.price == ((Tool) o).getPrice() &&

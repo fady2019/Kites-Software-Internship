@@ -25,7 +25,7 @@ public class ToolManagerTest {
     public void addNewTool() {
         manager = new ToolsManager();
         LocalDate expDate = getDate(1, 1, 2023);
-        Tool newTool = new Tool("Needle holder", "1215", expDate, 200,
+        Tool newTool = new Tool("Needle holder", 1215, expDate, 200,
                 ToolCategory.SURGICAL, 20, "s1", true, 3);
 
         assertTrue(manager.addTool(newTool));
@@ -36,7 +36,7 @@ public class ToolManagerTest {
     public void addExistingTool() {
         manager = new ToolsManager();
         LocalDate expDate = getDate(1, 1, 2023);
-        Tool tool = new Tool("Elevator", "1214", expDate, 200,
+        Tool tool = new Tool("Elevator", 1214, expDate, 200,
                 ToolCategory.SURGICAL, 20, "s1", true, 3);
         manager.addTool(tool);
         assertFalse(manager.addTool(tool));
@@ -49,11 +49,11 @@ public class ToolManagerTest {
         manager = new ToolsManager();
 
 
-        Tool elevator = new Tool("Elevator", "555", getDate(1, 1, 2023), 500,
+        Tool elevator = new Tool("Elevator", 555, getDate(1, 1, 2023), 500,
                 ToolCategory.SURGICAL, 10, "supplier1", true, 3);
-        Tool needleHolder = new Tool("needle holder", "1215", getDate(1, 1, 2023), 200,
+        Tool needleHolder = new Tool("needle holder", 1215, getDate(1, 1, 2023), 200,
                 ToolCategory.SURGICAL, 10, "s1", true, 3);
-        Tool bracketTweezers = new Tool("bracket tweezers", "840", getDate(1, 5, 2023), 150,
+        Tool bracketTweezers = new Tool("bracket tweezers", 840, getDate(1, 5, 2023), 150,
                 ToolCategory.ORTHODONTIC, 10, "s2", true, 3);
 
         manager.addTool(elevator);
@@ -70,11 +70,11 @@ public class ToolManagerTest {
     public void filteByCatWithNoExistingTools() {
         // arrange
         manager = new ToolsManager();
-        Tool elevator = new Tool("Elevator", "555", getDate(1, 1, 2023), 500,
+        Tool elevator = new Tool("Elevator", 555, getDate(1, 1, 2023), 500,
                 ToolCategory.SURGICAL, 10, "supplier1", true, 3);
-        Tool needleHolder = new Tool("needle holder", "1215", getDate(1, 1, 2023), 200,
+        Tool needleHolder = new Tool("needle holder", 1215, getDate(1, 1, 2023), 200,
                 ToolCategory.SURGICAL, 10, "s1", true, 3);
-        Tool bracketTweezers = new Tool("bracket tweezers", "840", getDate(1, 5, 2023), 150,
+        Tool bracketTweezers = new Tool("bracket tweezers", 840, getDate(1, 5, 2023), 150,
                 ToolCategory.ORTHODONTIC, 10, "s2", true, 3);
 
         manager.addTool(elevator);
@@ -91,11 +91,11 @@ public class ToolManagerTest {
     public void searchForExistingName() {
         // arrange
         manager = new ToolsManager();
-        Tool elevator = new Tool("Elevator", "555", getDate(1, 1, 2023), 500,
+        Tool elevator = new Tool("Elevator", 555, getDate(1, 1, 2023), 500,
                 ToolCategory.SURGICAL, 10, "supplier1", true, 3);
-        Tool needleHolder = new Tool("needle holder", "1215", getDate(1, 1, 2023), 200,
+        Tool needleHolder = new Tool("needle holder", 1215, getDate(1, 1, 2023), 200,
                 ToolCategory.SURGICAL, 10, "s1", true, 3);
-        Tool bracketTweezers = new Tool("bracket tweezers", "840", getDate(1, 5, 2023), 150,
+        Tool bracketTweezers = new Tool("bracket tweezers", 840, getDate(1, 5, 2023), 150,
                 ToolCategory.ORTHODONTIC, 10, "s2", true, 3);
 
         manager.addTool(elevator);
@@ -112,11 +112,11 @@ public class ToolManagerTest {
     public void searchForNonExistingName() {
         // arrange
         manager = new ToolsManager();
-        Tool elevator = new Tool("Elevator", "555", getDate(1, 1, 2023), 500,
+        Tool elevator = new Tool("Elevator", 555, getDate(1, 1, 2023), 500,
                 ToolCategory.SURGICAL, 10, "supplier1", true, 3);
-        Tool needleHolder = new Tool("needle holder", "1215", getDate(1, 1, 2023), 200,
+        Tool needleHolder = new Tool("needle holder", 1215, getDate(1, 1, 2023), 200,
                 ToolCategory.SURGICAL, 10, "s1", true, 3);
-        Tool bracketTweezers = new Tool("bracket tweezers", "840", getDate(1, 5, 2023), 150,
+        Tool bracketTweezers = new Tool("bracket tweezers", 840, getDate(1, 5, 2023), 150,
                 ToolCategory.ORTHODONTIC, 10, "s2", true, 3);
 
         manager.addTool(elevator);
@@ -136,9 +136,9 @@ public class ToolManagerTest {
     private ArrayList<Tool> expectedToolsinExistingCategorySurgical(){
         ArrayList<Tool> expectedTools = new ArrayList<>();
 
-        Tool elevator = new Tool("Elevator", "555", getDate(1, 1, 2023), 500,
+        Tool elevator = new Tool("Elevator", 555, getDate(1, 1, 2023), 500,
                 ToolCategory.SURGICAL, 10, "supplier1", true, 3);
-        Tool needleHolder = new Tool("needle holder", "1215", getDate(1, 1, 2023), 200,
+        Tool needleHolder = new Tool("needle holder", 1215, getDate(1, 1, 2023), 200,
                 ToolCategory.SURGICAL, 10, "s1", true, 3);
         
         expectedTools.add(elevator);
@@ -152,7 +152,7 @@ public class ToolManagerTest {
     }
 
     private Tool expectedSearchByNameElevator(){
-        return new Tool("Elevator", "555", getDate(1, 1, 2023), 500,
+        return new Tool("Elevator", 555, getDate(1, 1, 2023), 500,
         ToolCategory.SURGICAL, 10, "supplier1", true, 3);
     }
 
