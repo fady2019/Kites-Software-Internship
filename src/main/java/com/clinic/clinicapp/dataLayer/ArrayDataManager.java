@@ -6,12 +6,21 @@ import java.util.ArrayList;
 
 public class ArrayDataManager implements DataManager {
 
-    private static final ArrayList<Tool> tools = new ArrayList<>();
+    private   final ArrayList<Tool> tools = new ArrayList<>();
 
     public boolean addTool(Tool newTool) {
 
         if(tools.contains(newTool)) return false;
         tools.add(newTool);
         return true;
+    }
+    public ArrayList<Tool> filterByPrice(int start, int end){
+        ArrayList<Tool> result = new ArrayList<>();
+        for(Tool tool : tools){
+            if(tool.getPrice() >= start && tool.getPrice() <= end){
+                result.add(tool);
+            }
+        }
+        return result;
     }
 }
