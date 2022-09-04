@@ -1,7 +1,6 @@
 package com.clinic.clinicapp.buisnessLayer.entities;
 
 import java.time.LocalDate;
-import java.util.Objects;
 
 public class Tool {
     private String name;
@@ -65,7 +64,16 @@ public class Tool {
 
     @Override
     public boolean equals(Object o) {
-        return this.label.equals(((Tool) o).getLabel());
+        return  this.label.equals(((Tool) o).getLabel()) &&
+                this.name.equals(((Tool) o).getName()) &&
+                this.expDate.equals(((Tool) o).getExpDate()) &&
+                this.price == ((Tool) o).getPrice() &&
+                this.category.equals(((Tool) o).getCategory()) &&
+                this.quantity == ((Tool) o).getQuantity() &&
+                this.supplier.equals(((Tool) o).getSupplier()) &&
+                this.reusable == ((Tool) o).isReusable() &&
+                this.minQuantity == ((Tool) o).getMinQuantity()
+        ;
     }
 
 }
