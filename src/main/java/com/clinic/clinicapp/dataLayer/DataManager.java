@@ -12,4 +12,5 @@ public interface DataManager {
     public ArrayList<Tool> filterByCategory(ToolCategory category);
     public Tool searchByName(String name);
     public ArrayList<Tool> filterByPrice(int start, int end);
+    public void removeTool(long label);
 }

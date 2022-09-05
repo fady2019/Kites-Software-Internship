@@ -25,9 +25,10 @@ public class ToolManagerTest {
     public void addNewTool() {
         manager = new ToolsManager();
         LocalDate expDate = getDate(1, 1, 2023);
-        Tool newTool = new Tool("Needle holder", 1215, expDate, 200,
-                ToolCategory.SURGICAL, 20, "s1", true, 3);
+        Tool newTool = new Tool("Mirror", 96, expDate, 200,
+                ToolCategory.HANDCUTTING, 20, "s1", true, 3);
         assertTrue(manager.addTool(newTool));
+        manager.removeTool(96);
     }
 
     @DisplayName("Add existing Tool")
@@ -47,7 +48,8 @@ public class ToolManagerTest {
         // arrange
         manager = new ToolsManager();
 
-
+        Tool elevator1 = new Tool("Elevator", 1214, getDate(1, 1, 2023), 200,
+                ToolCategory.SURGICAL, 20, "s1", true, 3);
         Tool elevator = new Tool("Elevator", 555, getDate(1, 1, 2023), 500,
                 ToolCategory.SURGICAL, 10, "supplier1", true, 3);
         Tool needleHolder = new Tool("needle holder", 1215, getDate(1, 1, 2023), 200,
@@ -56,6 +58,7 @@ public class ToolManagerTest {
                 ToolCategory.ORTHODONTIC, 10, "s2", true, 3);
 
         manager.addTool(elevator);
+        manager.addTool(elevator1);
         manager.addTool(needleHolder);
         manager.addTool(bracketTweezers);
 
@@ -174,12 +177,16 @@ public class ToolManagerTest {
     private ArrayList<Tool> expectedToolsinExistingCategorySurgical(){
         ArrayList<Tool> expectedTools = new ArrayList<>();
 
+        Tool elevator1 = new Tool("Elevator", 1214, getDate(1, 1, 2023), 200,
+                ToolCategory.SURGICAL, 20, "s1", true, 3);
         Tool elevator = new Tool("Elevator", 555, getDate(1, 1, 2023), 500,
                 ToolCategory.SURGICAL, 10, "supplier1", true, 3);
         Tool needleHolder = new Tool("needle holder", 1215, getDate(1, 1, 2023), 200,
                 ToolCategory.SURGICAL, 10, "s1", true, 3);
-        
+
+
         expectedTools.add(elevator);
+        expectedTools.add(elevator1);
         expectedTools.add(needleHolder);
 
         return expectedTools;

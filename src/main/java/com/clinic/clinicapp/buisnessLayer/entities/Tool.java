@@ -64,15 +64,15 @@ public class Tool {
 
     @Override
     public boolean equals(Object o) {
-        return  this.label == ((Tool) o).getLabel() &&
-                this.name.equals(((Tool) o).getName()) &&
-                this.expDate.equals(((Tool) o).getExpDate()) &&
-                this.price == ((Tool) o).getPrice() &&
-                this.category.equals(((Tool) o).getCategory()) &&
-                this.quantity == ((Tool) o).getQuantity() &&
-                this.supplier.equals(((Tool) o).getSupplier()) &&
-                this.reusable == ((Tool) o).isReusable() &&
-                this.minQuantity == ((Tool) o).getMinQuantity()
+        return  this.label == ((Tool) o).getLabel() //&&
+//                this.name.equals(((Tool) o).getName()) &&
+//                this.expDate.equals(((Tool) o).getExpDate()) &&
+//                this.price == ((Tool) o).getPrice() &&
+//                this.category.equals(((Tool) o).getCategory()) &&
+//                this.quantity == ((Tool) o).getQuantity() &&
+//                this.supplier.equals(((Tool) o).getSupplier()) &&
+//                this.reusable == ((Tool) o).isReusable() &&
+//                this.minQuantity == ((Tool) o).getMinQuantity()
         ;
     }
 

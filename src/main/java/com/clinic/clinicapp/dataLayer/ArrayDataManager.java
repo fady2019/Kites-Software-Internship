@@ -48,4 +48,9 @@ public class ArrayDataManager implements DataManager {
         }
         return result;
     }
+
+    @Override
+    public void removeTool(long label) {
+        tools.remove(label);
+    }
 }
